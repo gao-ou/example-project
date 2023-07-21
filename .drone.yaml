@@ -36,3 +36,10 @@ steps:
     when:
       event:
         - tag
+
+trigger:
+  branch:
+    - master
+  event:
+    - cron
+    - tag
