@@ -29,10 +29,8 @@ steps:
       auto_tag_suffix: linux-amd64
       dockerfile: Dockerfile
       repo: registry.cn-hangzhou.aliyuncs.com/chenshiwei/example-project
-      username:
-        from_secret: docker_username
-      password:
-        from_secret: docker_password
+      username: 16601163553
+      password: bigeye7963
     when:
       event:
         - tag
