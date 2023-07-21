@@ -13,6 +13,7 @@ func ConnMysql(username string, password string, addr string, dbname string) (*g
 	// 参考 https://github.com/go-sql-driver/mysql#dsn-data-source-name 获取详情
 	// "用户名:密码@tcp(IP地址:端口号)/数据库名称?charset=utf8mb4&parseTime=True&loc=Local"
 	var dsn = username + ":" + password + "@tcp(" + addr + ")/" + dbname + "?charset=utf8mb4&parseTime=True&loc=Local"
+	fmt.Println("dsp", dsn)
 	//dsn := "root:12345678@tcp(127.0.0.1:3306)/chenshiweifuqindeshujuku?charset=utf8mb4&parseTime=True&loc=Local"
 	// db是gorm gormDB结构体的变量，err 是gorm.Open返回的错误
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{}) //gorm包名  链接mysql 返回一个连接器 把连接器给gorm.Open 利用gorm打开连接器

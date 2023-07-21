@@ -1,0 +1,38 @@
+---
+kind: pipeline
+type: docker
+name: linux-amd64
+
+platform:
+  arch: amd64
+  os: linux
+
+steps:
+  - name: test
+    image: golang:1.18.8
+    commands:
+      - echo "测试代码"
+
+  - name: build
+    image: golang:1.18.8
+    commands:
+      - echo "构建二进制文件"
+      - go build
+    environment:
+      GOARCH: amd64
+      GOOS: linux
+
+  - name: publish
+    image: plugins/docker:18
+    settings:
+      auto_tag: true
+      auto_tag_suffix: linux-amd64
+      dockerfile: Dockerfile
+      repo: registry.cn-hangzhou.aliyuncs.com/chenshiwei/example-project
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+    when:
+      event:
+        - tag

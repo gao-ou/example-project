@@ -35,6 +35,7 @@ func init() {
 	// 绑定 hello 命令
 	// go run main.go hello
 	rootCmd.AddCommand(&helloCmd)
+	rootCmd.AddCommand(&apiCmd)
 }
 
 func initConfig() {
