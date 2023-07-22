@@ -32,7 +32,7 @@ steps:
       platform: linux/amd64
       dockerfile: Dockerfile
       registry: registry.cn-hangzhou.aliyuncs.com
-      repo: chenshiwei/example-project
+      repo: registry.cn-hangzhou.aliyuncs.com/chenshiwei/example-project
       username:
         from_secret: docker_username
       password:
