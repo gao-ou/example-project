@@ -17,6 +17,9 @@ steps:
     image: golang:1.18.8
     commands:
       - echo "构建二进制文件"
+      - go env -w GO111MODULE=on
+      - go env -w GOPROXY=https://goproxy.cn,direct
+      - go mod tidy
       - go build
     environment:
       GOARCH: amd64
@@ -30,8 +33,10 @@ steps:
       dockerfile: Dockerfile
       registry: registry.cn-hangzhou.aliyuncs.com
       repo: chenshiwei/example-project
-      username: 16601163553
-      password: bigeye7963
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
       debug: true
     when:
       event:
