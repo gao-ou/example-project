@@ -41,6 +41,13 @@ steps:
       event:
         - tag
 
+  - name: build-notify
+    image: lddsb/drone-dingtalk-message
+    settings:
+      token:
+        form_secret: dingtalk_token
+      type: markdown
+
 trigger:
   branch:
     - master
