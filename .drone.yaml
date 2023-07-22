@@ -26,12 +26,13 @@ steps:
     image: plugins/docker:18
     settings:
       auto_tag: true
-      auto_tag_suffix: linux-amd64
+      platform: linux/amd64
       dockerfile: Dockerfile
       registry: registry.cn-hangzhou.aliyuncs.com
       repo: chenshiwei/example-project
       username: 16601163553
       password: bigeye7963
+      debug: true
     when:
       event:
         - tag
