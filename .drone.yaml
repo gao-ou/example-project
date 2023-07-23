@@ -45,7 +45,7 @@ steps:
     image: lddsb/drone-dingtalk-message
     settings:
       token:
-        form_secret: dingtalk_token
+        from_secret: dingtalk_token
       type: markdown
 
 trigger:
